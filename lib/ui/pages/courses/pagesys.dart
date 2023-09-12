@@ -1,4 +1,7 @@
+import 'package:coodehub/constants/app_constants.dart';
+import 'package:coodehub/ui/common/textwith.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 
 import 'player.dart';
 
@@ -22,15 +25,17 @@ class _VideoPagyerState extends State<VideoPlayer> {
             child: Column(
               children: [
                 YoutubeVideo(widget.URLL),
-                ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: 20,
-                    itemBuilder: (ctx, i) {
-                      return ListTile(
-                        title: Text("Item $i"),
-                      );
-                    })
+                const SizedBox(height: 20),
+               Container(
+                width: width-14,
+                  padding: const EdgeInsets.all(15),  
+                decoration: BoxDecoration(
+                  color: Colors.grey[900],
+                  borderRadius: BorderRadius.circular(10),
+                
+                ),
+                child:  const CustomFontText(text: "Flutter all about ",color: Colors.white,),
+               )
               ],
             ),
           ),
