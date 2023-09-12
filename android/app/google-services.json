@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "394537922276",
+    "project_id": "codehub-tech",
+    "storage_bucket": "codehub-tech.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394537922276:android:2ade13d33813385c5146f1",
+        "android_client_info": {
+          "package_name": "com.example.coodehub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394537922276-ntrkhcdub6hf7s6os7lhu28dffuguscp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVt9TLAO8b7cegvn8tPK-KX8qNrfMnw2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394537922276-ntrkhcdub6hf7s6os7lhu28dffuguscp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
