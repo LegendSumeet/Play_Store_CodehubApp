@@ -1,6 +1,4 @@
-import 'package:coodehub/controllers/zoom_provider.dart';
-import 'package:coodehub/ui/pages/courses/page.dart';
-import 'package:coodehub/ui/pages/roadmaps/roadmaps.dart';
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,7 +29,6 @@ void main(List<String> args) async {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => OnBoardNotifier()),
     ChangeNotifierProvider(create: (context) => LoginNotifier()),
-    ChangeNotifierProvider(create: (context) => ZoomNotifier()),
     ChangeNotifierProvider(create: (context) => SignUpNotifier()),
     ChangeNotifierProvider(create: (context) => MentorNotifier()),
     ChangeNotifierProvider(create: (context) => ProfileNotifier()),
@@ -57,7 +54,7 @@ class MyApp extends StatelessWidget {
               theme: ThemeData(
                 primarySwatch: Colors.grey,
               ),
-              home: CoursePage());
+              home: NavBar());
         });
   }
 }

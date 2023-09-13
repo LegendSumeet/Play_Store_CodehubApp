@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
+import '../pages/courses/page.dart';
+
 
 class CourseDetailsTile extends StatelessWidget {
   final String courseName;
@@ -52,7 +54,7 @@ class CourseDetailsTile extends StatelessWidget {
           color: Colors.grey[300],
         ),
         onTap: () {
-          Get.to(()=>const OtpScreen());
+          Get.to(()=>const CoursePage());
         },
         // Added an image at the bottom of the tile
         isThreeLine: true,

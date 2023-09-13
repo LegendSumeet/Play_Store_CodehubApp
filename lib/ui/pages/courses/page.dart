@@ -22,6 +22,15 @@ class _CoursePageState extends State<CoursePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(onPressed: (){
+          Get.back();
+        }, icon:Icon(Icons.arrow_back_ios_new_rounded,color: Colors.white,)),
+        centerTitle: true,
+        backgroundColor: Colors.black,
+        elevation: 0,
+      
+      ),
       backgroundColor: Colors.black,
       body: Padding(
         padding: const EdgeInsets.all(15),
