@@ -1,6 +1,7 @@
 import 'package:coodehub/constants/app_constants.dart';
 import 'package:coodehub/ui/common/textwith.dart';
 import 'package:coodehub/ui/pages/auth/signup.dart';
+import 'package:coodehub/ui/pages/interships/page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -163,8 +164,7 @@ class intershipsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(
-          horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Container(
           decoration: BoxDecoration(
             color: Colors.grey[800],
@@ -181,8 +181,7 @@ class intershipsCard extends StatelessWidget {
                       color: Colors.white),
                 ),
                 subtitle: Column(
-                    crossAxisAlignment:
-                        CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 6),
                       CustomFontText(
@@ -194,8 +193,7 @@ class intershipsCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 3),
                       CustomFontText(
-                          text:
-                              'Duration: ${internship.duration}',
+                          text: 'Duration: ${internship.duration}',
                           fontSize: 14,
                           color: Colors.white),
                       const SizedBox(
@@ -212,7 +210,11 @@ class intershipsCard extends StatelessWidget {
                   size: 18,
                   color: Colors.grey[300],
                 ),
-                onTap: () {}),
+                onTap: () {
+                  Get.to(() => const INternPage(),
+                      transition: Transition.leftToRightWithFade,
+                      duration: const Duration(milliseconds: 500));
+                }),
           )),
     );
   }

@@ -116,7 +116,7 @@ class SecondRowNav extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomFontText(
-              text: "UpComing Events",
+              text: "OnGoing Events",
               fontWeight: FontWeight.bold,
               fontSize: 18,
               color: Colors.white,
