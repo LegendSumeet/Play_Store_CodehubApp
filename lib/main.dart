@@ -1,11 +1,8 @@
-
-
-import 'package:coodehub/ui/pages/interships/page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:provider/provider.dart';
-
 import 'constants/app_constants.dart';
 import 'controllers/login_provider.dart';
 import 'controllers/mentor_provider.dart';
@@ -15,6 +12,8 @@ import 'controllers/signup_provider.dart';
 import 'ui/common/nav.dart';
 
 void main(List<String> args) async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 /*
 
   if (entrypoint != true) {

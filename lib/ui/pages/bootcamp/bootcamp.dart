@@ -1,7 +1,11 @@
 import 'dart:ui';
 
+import 'package:coodehub/ui/pages/auth/signup.dart';
+import 'package:coodehub/ui/pages/bootcamp/page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 
 class Event {
   final String title;
@@ -88,7 +92,9 @@ class EventsAndBootcampsScreen extends StatelessWidget {
 
   Widget _buildBootcampCard(Bootcamp bootcamp) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+      Get.to(() => const BootCampPage());
+      },
       child: Container(
         width: 150,
         height: 150,
