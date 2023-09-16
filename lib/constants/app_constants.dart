@@ -1,9 +1,46 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppConfig {
   static const String name = "Codehub";
+  static Future<dynamic> Loader(BuildContext context) {
+    return showDialog(
+      context: context,
+      barrierDismissible: false, // Prevent user from dismissing the dialog
+      builder: (BuildContext context) {
+        return Center(
+          child: AnimatedOpacity(
+            duration: const Duration(milliseconds: 300),
+            opacity: 1.0,
+            child: Material(
+              type: MaterialType.transparency,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.black,
+                ),
+                width: 100.0,
+                height: 100.0,
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircularProgressIndicator(),
+                    SizedBox(height: 16.0),
+                    Text(
+                      "Loading...",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
 }
 
 const kDark = Color(0xFF000000);

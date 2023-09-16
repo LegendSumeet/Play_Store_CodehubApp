@@ -1,5 +1,9 @@
+import 'package:coodehub/constants/app_constants.dart';
 import 'package:coodehub/ui/common/textwith.dart';
+import 'package:coodehub/ui/pages/auth/otp.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});
@@ -9,9 +13,8 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  TextEditingController name = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
+  TextEditingController number = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +44,7 @@ class _SignUpState extends State<SignUp> {
               ),
               const SizedBox(height: 40),
               TextFormField(
+                controller: number,
                 style: const TextStyle(color: Colors.white, fontSize: 18),
                 cursorColor: Colors.white,
                 keyboardType: TextInputType.phone,
@@ -84,7 +88,21 @@ class _SignUpState extends State<SignUp> {
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      AppConfig.Loader(context);
+                      await FirebaseAuth.instance.verifyPhoneNumber(
+                        phoneNumber: '+91$number',
+                        verificationCompleted:
+                            (PhoneAuthCredential credential) {},
+                        verificationFailed: (FirebaseAuthException e) {},
+                        codeSent: (String verificationId, int? resendToken) {
+                          navigator!.pop();
+                          Get.to(() => OtpScreen(id: verificationId),
+                              transition: Transition.rightToLeft);
+                        },
+                        codeAutoRetrievalTimeout: (String verificationId) {},
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,
                       padding: const EdgeInsets.symmetric(

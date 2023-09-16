@@ -41,6 +41,7 @@ dependencies:
   youtube_player_flutter: ^8.1.2
   visibility_detector: ^0.4.0+2
   flutter_inappwebview: ^5.7.2+3
+  firebase_auth: ^4.9.0
 
 dev_dependencies:
   flutter_test:

@@ -38,7 +38,7 @@ class _InternshipSliderCarouselState extends State<InternshipSliderCarousel> {
       children: [
         InkWell(
           onTap: () {
-            Get.to(() => const OtpScreen());
+           
           },
           child: SizedBox(
             width: screenWidth,

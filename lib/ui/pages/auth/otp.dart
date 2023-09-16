@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class OtpScreen extends StatefulWidget {
-  const OtpScreen({super.key});
+  final String id;
+  const OtpScreen({super.key, required this.id});
 
   @override
   State<OtpScreen> createState() => _OtpScreenState();

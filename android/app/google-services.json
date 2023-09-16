@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "394537922276",
-    "project_id": "codehub-tech",
-    "storage_bucket": "codehub-tech.appspot.com"
+    "project_number": "206999092304",
+    "project_id": "codehub-mindworktech",
+    "storage_bucket": "codehub-mindworktech.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:394537922276:android:2ade13d33813385c5146f1",
+        "mobilesdk_app_id": "1:206999092304:android:c02c5fb4ec81873261a555",
         "android_client_info": {
-          "package_name": "com.example.coodehub"
+          "package_name": "com.example.codehub"
         }
       },
       "oauth_client": [
         {
-          "client_id": "394537922276-ntrkhcdub6hf7s6os7lhu28dffuguscp.apps.googleusercontent.com",
+          "client_id": "206999092304-8girbqu50msrkldg170411u6ccd1jv5u.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAVt9TLAO8b7cegvn8tPK-KX8qNrfMnw2A"
+          "current_key": "AIzaSyA-fQ_LI9kpNe-eaBstW8LcpzrMpEvwrGg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "394537922276-ntrkhcdub6hf7s6os7lhu28dffuguscp.apps.googleusercontent.com",
+              "client_id": "206999092304-8girbqu50msrkldg170411u6ccd1jv5u.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "206999092304-565svvfcngkiue7pj8s2f5h5hlr6stdf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.codehub"
+              }
             }
           ]
         }
