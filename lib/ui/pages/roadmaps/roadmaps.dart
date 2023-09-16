@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(home: RoadmapScreen()));
+void main() => runApp(const MaterialApp(home: RoadmapScreen()));
 
 class RoadmapScreen extends StatelessWidget {
+  const RoadmapScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Learning Path',
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.black,
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: Row(
           children: [
@@ -41,7 +43,7 @@ class LearningPathFlowchartColumn extends StatelessWidget {
   final String title;
   final List<String> steps;
 
-  LearningPathFlowchartColumn({required this.title, required this.steps});
+  const LearningPathFlowchartColumn({super.key, required this.title, required this.steps});
 
   @override
   Widget build(BuildContext context) {
@@ -49,11 +51,11 @@ class LearningPathFlowchartColumn extends StatelessWidget {
       children: [
         Container(
           width: 200, // Adjust the column width as needed
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           color: Colors.grey,
           child: Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
             ),
@@ -72,13 +74,15 @@ class LearningPathFlowchartColumn extends StatelessWidget {
             );
           },
         ),
-        LearningPathConnector(),
+        const LearningPathConnector(),
       ],
     );
   }
 }
 
 class LearningPathConnector extends StatelessWidget {
+  const LearningPathConnector({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(

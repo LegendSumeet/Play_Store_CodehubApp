@@ -1,7 +1,6 @@
 import 'package:coodehub/Server/authhelper/Authhelper.dart';
 import 'package:coodehub/models/request/auth/Signup.dart';
 import 'package:coodehub/ui/common/nav.dart';
-import 'package:coodehub/ui/pages/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';

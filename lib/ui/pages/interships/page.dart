@@ -45,12 +45,12 @@ class _INternPageState extends State<INternPage> {
           child: ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
-              primary: Colors.grey[800],
+              backgroundColor: Colors.grey[800],
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
-            child: Center(
+            child: const Center(
               child: CustomFontText(
                 text: "Apply Now",
                 color: Colors.white,
@@ -318,7 +318,7 @@ class _INternPageState extends State<INternPage> {
             const SizedBox(
               height: 10,
             ),
-            Divider(
+            const Divider(
               color: Colors.white,
             ),
           ],
@@ -331,12 +331,12 @@ class _INternPageState extends State<INternPage> {
 class SkillSetContainer extends StatelessWidget {
   final List<String> skills;
 
-  SkillSetContainer({required this.skills});
+  const SkillSetContainer({super.key, required this.skills});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(5.0),
+      padding: const EdgeInsets.all(5.0),
       child: Wrap(
         spacing: 8.0, // Space between the skill items
         runSpacing: 8.0, // Space between rows of skill items
@@ -349,12 +349,12 @@ class SkillSetContainer extends StatelessWidget {
 class SkillItem extends StatelessWidget {
   final String skill;
 
-  SkillItem({required this.skill});
+  const SkillItem({super.key, required this.skill});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(12.0),
+      padding: const EdgeInsets.all(12.0),
       decoration: BoxDecoration(
         color: Colors.blue,
         borderRadius:
@@ -362,7 +362,7 @@ class SkillItem extends StatelessWidget {
       ),
       child: Text(
         skill,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.white,
         ),
       ),

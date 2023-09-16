@@ -1,9 +1,6 @@
-import 'dart:ui';
 
-import 'package:coodehub/ui/pages/auth/signup.dart';
 import 'package:coodehub/ui/pages/bootcamp/page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 
@@ -46,17 +43,24 @@ class EventsAndBootcampsScreen extends StatelessWidget {
           child: Column(
             children: [
               const TabBar(
+                indicatorColor: Colors.white, // Indicator color
                 tabs: [
                   Tab(
                     child: Text(
                       "Events",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18, // Font size
+                      ),
                     ),
                   ),
                   Tab(
                     child: Text(
                       "Bootcamps",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18, // Font size
+                      ),
                     ),
                   ),
                 ],
@@ -93,15 +97,15 @@ class EventsAndBootcampsScreen extends StatelessWidget {
   Widget _buildBootcampCard(Bootcamp bootcamp) {
     return GestureDetector(
       onTap: () {
-      Get.to(() => const BootCampPage());
+        Get.to(() => const BootCampPage());
       },
       child: Container(
-        width: 150,
-        height: 150,
-        margin: const EdgeInsets.all(8),
+        width: double.infinity, // Expanded card width
+        height: 200, // Increased card height
+        margin: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: Colors.grey[800],
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(20), // Increased border radius
           image: DecorationImage(
             image: const NetworkImage(
                 'https://c4.wallpaperflare.com/wallpaper/39/346/426/digital-art-men-city-futuristic-night-hd-wallpaper-thumb.jpg'),
@@ -118,15 +122,15 @@ class EventsAndBootcampsScreen extends StatelessWidget {
               top: 8,
               left: 8,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
                   color: Colors.blue,
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(10), // Increased border radius
                 ),
                 child: const Text(
                   'Paid',
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 16, // Increased font size
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
@@ -142,28 +146,30 @@ class EventsAndBootcampsScreen extends StatelessWidget {
                   const Icon(
                     Icons.code,
                     color: Colors.orange,
-                    size: 24,
+                    size: 36, // Increased icon size
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 16), // Increased spacing
                   Text(
                     bootcamp.title,
                     style: const TextStyle(
-                      fontSize: 16,
+                      fontSize: 20, // Increased font size
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 16), // Increased spacing
                   Text(
                     'Duration: ${bootcamp.duration}',
-                    style: TextStyle(fontSize: 14, color: Colors.grey[300]),
+                    style: TextStyle(
+                      fontSize: 18, // Increased font size
+                      color: Colors.grey[300],
+                    ),
                     textAlign: TextAlign.center,
                   ),
                 ],
               ),
             ),
-            // Blurred background image
           ],
         ),
       ),
@@ -174,12 +180,12 @@ class EventsAndBootcampsScreen extends StatelessWidget {
     return GestureDetector(
       onTap: () {},
       child: Container(
-        width: 150,
-        height: 150,
-        margin: const EdgeInsets.all(8),
+        width: double.infinity, // Expanded card width
+        height: 200, // Increased card height
+        margin: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: Colors.grey[800],
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(20), // Increased border radius
           image: DecorationImage(
             image: const NetworkImage(
                 'https://c4.wallpaperflare.com/wallpaper/39/346/426/digital-art-men-city-futuristic-night-hd-wallpaper-thumb.jpg'),
@@ -196,15 +202,15 @@ class EventsAndBootcampsScreen extends StatelessWidget {
               top: 8,
               left: 8,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
                   color: Colors.blue,
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(10), // Increased border radius
                 ),
                 child: const Text(
                   'Paid',
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 16, // Increased font size
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
@@ -220,28 +226,30 @@ class EventsAndBootcampsScreen extends StatelessWidget {
                   const Icon(
                     Icons.code,
                     color: Colors.orange,
-                    size: 24,
+                    size: 36, // Increased icon size
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 16), // Increased spacing
                   Text(
                     event.title,
                     style: const TextStyle(
-                      fontSize: 16,
+                      fontSize: 20, // Increased font size
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 16), // Increased spacing
                   Text(
-                    'Duration: ${event.date}',
-                    style: TextStyle(fontSize: 14, color: Colors.grey[300]),
+                    'Date: ${event.date}', // Changed label to 'Date'
+                    style: TextStyle(
+                      fontSize: 18, // Increased font size
+                      color: Colors.grey[300],
+                    ),
                     textAlign: TextAlign.center,
                   ),
                 ],
               ),
             ),
-            // Blurred background image
           ],
         ),
       ),

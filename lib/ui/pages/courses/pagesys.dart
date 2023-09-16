@@ -1,7 +1,4 @@
-import 'package:coodehub/constants/app_constants.dart';
-import 'package:coodehub/ui/common/textwith.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
@@ -26,7 +23,7 @@ class _VideoPagyerState extends State<VideoPlayer> {
               onPressed: () {
                 Get.back();
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back_ios_new_rounded,
                 color: Colors.white,
               )),

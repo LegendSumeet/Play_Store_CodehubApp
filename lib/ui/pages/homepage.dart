@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
             const Row(
               children: [
                 CustomFontText(
-                  text: "Courses",
+                  text: "Developer Roadmaps",
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                   color: Colors.white,

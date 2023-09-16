@@ -13,7 +13,7 @@ class _MoreSettingsState extends State<MoreSettings> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: CustomFontText(
+        title: const CustomFontText(
          text: "More Settings",
           style: TextStyle(
             color: Colors.white,
@@ -70,12 +70,12 @@ class _MoreSettingsState extends State<MoreSettings> {
         ),
         title: Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 16, // Adjust the font size
           ),
         ),
-        trailing: Icon(
+        trailing: const Icon(
           Icons.arrow_forward_ios,
           color: Colors.white,
         ),

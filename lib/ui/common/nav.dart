@@ -31,7 +31,7 @@ class _NavBarState extends State<NavBar> {
         children:   [
           const HomePage(),
           const InternshipsPage(),
-          const Memes(),
+          const MemesPage(),
           EventsAndBootcampsScreen(),
           const MoreSettings(),
         ],

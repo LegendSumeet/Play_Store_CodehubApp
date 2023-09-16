@@ -1,5 +1,5 @@
+import 'package:coodehub/ui/pages/roadmaps/homeroadmaps.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:provider/provider.dart';
@@ -9,11 +9,9 @@ import 'controllers/mentor_provider.dart';
 import 'controllers/onboarding_provider.dart';
 import 'controllers/profile_provider.dart';
 import 'controllers/signup_provider.dart';
-import 'ui/common/nav.dart';
 
 void main(List<String> args) async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
 /*
 
   if (entrypoint != true) {
@@ -54,7 +52,7 @@ class MyApp extends StatelessWidget {
               theme: ThemeData(
                 primarySwatch: Colors.grey,
               ),
-              home: const NavBar());
+              home:  const LearningPathScreen());
         });
   }
 }

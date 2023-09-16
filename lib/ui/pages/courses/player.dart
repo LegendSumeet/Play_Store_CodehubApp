@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
+// ignore: must_be_immutable
 class YoutubeVideo extends StatefulWidget {
   String youtubeUrl;
 
@@ -15,7 +16,9 @@ class YoutubeVideo extends StatefulWidget {
 class _YoutubeVideoState extends State<YoutubeVideo> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   late YoutubePlayerController _controller;
-  bool _isPlayerReady = false;
+  late TextEditingController _idController;
+  late TextEditingController _seekToController;
+  final bool _isPlayerReady = false;
   late String videoId;
 
   @override
@@ -29,6 +32,7 @@ class _YoutubeVideoState extends State<YoutubeVideo> {
         autoPlay: false,
         disableDragSeek: false,
         loop: false,
+
         controlsVisibleAtStart: true,
         hideControls: false,
         showLiveFullscreenButton: true,
@@ -37,36 +41,34 @@ class _YoutubeVideoState extends State<YoutubeVideo> {
         enableCaption: true,
       ),
     )..addListener(listener);
+    _idController = TextEditingController();
+    _seekToController = TextEditingController();
   }
 
   void listener() {
     if (_isPlayerReady && mounted && !_controller.value.isFullScreen) {
-      // You can add any necessary logic here
+     // setState(() {});
     }
   }
 
   @override
   void deactivate() {
-    /// Pauses video while navigating to the next page.
-    if (_controller.value.isPlaying) {
-      _controller.pause();
-    }
+    /// Pauses video while navigating to next page.
+    _controller.pause();
     super.deactivate();
   }
 
   @override
   void dispose() {
-    if (_controller.value.isPlaying) {
-      _controller.pause();
-    }
     _controller.dispose();
+    _idController.dispose();
+    _seekToController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      
       height: 200,
       color: Colors.blue,
       child: VisibilityDetector(
@@ -104,7 +106,6 @@ class _YoutubeVideoState extends State<YoutubeVideo> {
               ),
             ],
             onReady: () {
-              _isPlayerReady = true;
               _controller.addListener(listener);
             },
             onEnded: (data) {},

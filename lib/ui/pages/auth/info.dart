@@ -1,6 +1,5 @@
 import 'package:coodehub/controllers/signup_provider.dart';
 import 'package:coodehub/ui/common/textwith.dart';
-import 'package:coodehub/ui/pages/auth/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:provider/provider.dart';
