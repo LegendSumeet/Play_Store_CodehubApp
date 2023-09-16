@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
               theme: ThemeData(
                 primarySwatch: Colors.grey,
               ),
-              home: SignUp());
+              home: const SignUp());
         });
   }
 }
