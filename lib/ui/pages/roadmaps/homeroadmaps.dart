@@ -109,18 +109,17 @@ class _LearningPathState extends State<LearningPath> {
     );
   }
 }
-
 class LearningStep extends StatelessWidget {
   final String title;
   final String description;
   final List<String> subcategories;
 
-  const LearningStep({super.key, 
+  const LearningStep({
+    super.key,
     required this.title,
     required this.description,
     required this.subcategories,
   });
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -176,7 +175,7 @@ class LearningStep extends StatelessWidget {
                           for (var subcategory in subcategories)
                             GestureDetector(
                               onTap: () {
-                                showModalBottomSheet(
+                                showDialog(
                                   context: context,
                                   builder: (BuildContext context) {
                                     return const CustomShapeDialog(); // This is the content of the bottom sheet
@@ -217,10 +216,8 @@ class LearningStep extends StatelessWidget {
     );
   }
 }
-
 class LearningConnector extends StatelessWidget {
   const LearningConnector({super.key});
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -252,50 +249,53 @@ class LearningConnector extends StatelessWidget {
     );
   }
 }
-
 class CustomShapeDialog extends StatelessWidget {
   const CustomShapeDialog({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return Dialog(
+    return AlertDialog(
+      contentPadding: EdgeInsets.zero,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: BorderRadius.circular(12),
       ),
-      child: Container(
-        padding: const EdgeInsets.all(16.0),
-        decoration: BoxDecoration(
-          color: Colors.white, // Background color
-          borderRadius: BorderRadius.circular(12.0),
+      content: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxWidth: MediaQuery.of(context).size.width * 0.9,
+          maxHeight: MediaQuery.of(context).size.height * 0.7,
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            const Text(
-              'Dialog Title',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            const Divider(),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.2,
-              child: SingleChildScrollView(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(16.0),
                 child: Text(
-                  // Add your long content here
-                  'This is the content of the dialog. ' *
-                      20, // Example long content
+                  'Dialog Title',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
               ),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .pop(); // Close the dialog when the button is pressed
-              },
-              child: const Text('Close'),
-            ),
-          ],
+              const Divider(thickness: 1),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  'This is the scrollable content ' * 100,
+                ),
+              ),
+              ButtonBar(
+                alignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                    style: ButtonStyle(
+                      foregroundColor: MaterialStateProperty.all<Color>(
+                          Theme.of(context).primaryColor),
+                    ),
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text('Close'),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

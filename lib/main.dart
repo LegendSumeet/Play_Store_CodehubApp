@@ -1,4 +1,6 @@
+import 'package:coodehub/ui/common/nav.dart';
 import 'package:coodehub/ui/pages/auth/signup.dart';
+import 'package:coodehub/ui/pages/roadmaps/homeroadmaps.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
               theme: ThemeData(
                 primarySwatch: Colors.grey,
               ),
-              home: const SignUp());
+              home:  NavBar());
         });
   }
 }

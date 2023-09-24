@@ -14,7 +14,7 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   TextEditingController number = TextEditingController();
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
