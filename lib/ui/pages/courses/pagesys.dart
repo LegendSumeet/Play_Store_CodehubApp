@@ -1,45 +1,78 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/get_core.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-
-import 'player.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoPlayer extends StatefulWidget {
-  // ignore: non_constant_identifier_names
   const VideoPlayer({Key? key, required this.URLL}) : super(key: key);
 
   final String URLL;
 
   @override
-  State<VideoPlayer> createState() => _VideoPagyerState();
+  State<VideoPlayer> createState() => _VideoPlayerState();
 }
 
-class _VideoPagyerState extends State<VideoPlayer> {
+class _VideoPlayerState extends State<VideoPlayer> {
+  late YoutubePlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = YoutubePlayerController(
+      initialVideoId: YoutubePlayer.convertUrlToId(widget.URLL)!,
+      flags: const YoutubePlayerFlags(
+        mute: false,
+        autoPlay: false,
+        disableDragSeek: false,
+        loop: false,
+        controlsVisibleAtStart: true,
+        hideControls: false,
+        showLiveFullscreenButton: true,
+        isLive: false,
+        forceHD: true,
+        enableCaption: true,
+      ),
+    );
+  }
+
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-              onPressed: () {
-                Get.back();
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios_new_rounded,
-                color: Colors.white,
-              )),
-          centerTitle: true,
-          backgroundColor: Colors.black,
-          elevation: 0,
-        ),
-        backgroundColor: Colors.black,
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                YoutubeVideo(widget.URLL),
+      body: OrientationBuilder(
+        builder: (context, orientation) {
+          return YoutubePlayerBuilder(
+            builder: (context, player) {
+              return Column(
+                children: [
+                  player,
+                ],
+              );
+            },
+            player: YoutubePlayer(
+              controller: _controller,
+              aspectRatio: 16 / 9,
+              bottomActions: [
+                CurrentPosition(),
+                ProgressBar(
+                  isExpanded: true,
+                  colors: ProgressBarColors(
+                    playedColor: Colors.red,
+                    handleColor: Colors.redAccent,
+                  ),
+                ),
+                RemainingDuration(),
+                FullScreenButton(
+                  color: Colors.red,
+                ),
+                PlaybackSpeedButton(),
               ],
             ),
-          ),
-        ));
+          );
+        },
+      ),
+    );
   }
 }

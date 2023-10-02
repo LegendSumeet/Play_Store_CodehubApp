@@ -1,6 +1,9 @@
 import 'package:coodehub/Server/authhelper/Authhelper.dart';
 import 'package:coodehub/models/request/auth/Signup.dart';
+import 'package:coodehub/models/request/auth/otp.dart';
+import 'package:coodehub/models/request/auth/verify.dart';
 import 'package:coodehub/ui/common/nav.dart';
+import 'package:coodehub/ui/pages/auth/otp.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
@@ -33,6 +36,8 @@ class SignUpNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
+  
+
   bool passwordValidator(String password) {
     if (password.isEmpty) return false;
     String pattern =
@@ -40,6 +45,7 @@ class SignUpNotifier extends ChangeNotifier {
     RegExp regex = RegExp(pattern);
     return regex.hasMatch(password);
   }
+
 
   final signupFormKey = GlobalKey<FormState>();
   bool validateAndSave() {
@@ -52,6 +58,7 @@ class SignUpNotifier extends ChangeNotifier {
     }
   }
 
+
   signup(SignupModel model) {
     AuthHelper.signup(model).then((response) {
       if (response) {
@@ -60,6 +67,37 @@ class SignUpNotifier extends ChangeNotifier {
       } else if (!response) {
         navigator!.pop();
         Get.snackbar('sign in failed', 'Invalid Credentials');
+      }
+    }).catchError((error) {
+      navigator!.pop();
+      Get.snackbar('sign in failed', 'Invalid Credentials');
+    });
+  }
+
+
+  sendotp(OtpModel model) {
+    AuthHelper.sendotp(model).then((response) {
+      if (response) {
+        navigator!.pop();
+        Get.to(() => const OtpScreen());
+      } else if (!response) {
+        navigator!.pop();
+        Get.snackbar('Server', 'Busy');
+      }
+    }).catchError((error) {
+      navigator!.pop();
+      Get.snackbar('sign in failed', 'Invalid Credentials');
+    });
+  }
+
+
+  verify(VerifyModel model) {
+    AuthHelper.verify(model).then((response) {
+      if (response) {
+        navigator!.pop();
+      } else if (!response) {
+        navigator!.pop();
+        Get.snackbar('Server', 'Busy');
       }
     }).catchError((error) {
       navigator!.pop();

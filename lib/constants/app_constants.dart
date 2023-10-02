@@ -2,9 +2,19 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AppConfig {
   static const String name = "Codehub";
+  static const String version = "1.0.0";
+  static  String usermail = '';
+
+  Future<void> saveEmail(String email) async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.setString('email', email);
+  usermail = email;
+}
+
   static Future<dynamic> Loader(BuildContext context) {
     return showDialog(
       context: context,
@@ -58,3 +68,6 @@ const kRed = Color(0xffd63031);
 
 double hieght = 812.h;
 double width = 375.w;
+
+
+
