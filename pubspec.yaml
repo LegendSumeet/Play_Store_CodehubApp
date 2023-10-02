@@ -39,10 +39,15 @@ dependencies:
   visibility_detector: ^0.4.0+2
   flutter_inappwebview: ^5.7.2+3
   awesome_notifications: ^0.7.7
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/codehub.png"
 
   flutter_lints: ^2.0.0
 
