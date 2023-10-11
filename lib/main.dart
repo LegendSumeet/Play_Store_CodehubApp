@@ -1,6 +1,7 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:coodehub/ui/common/local_noti.dart';
 import 'package:coodehub/ui/common/nav.dart';
+import 'package:coodehub/ui/pages/auth/signup.dart';
 import 'package:coodehub/ui/pages/courses/pagesys.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -69,7 +70,7 @@ class _MyAppState extends State<MyApp> {
               theme: ThemeData(
                 primarySwatch: Colors.grey,
               ),
-              home:  const NavBar());
+              home:  const SignUp());
         });
   }
 }

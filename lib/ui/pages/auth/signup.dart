@@ -102,8 +102,6 @@ class _SignUpState extends State<SignUp> {
                             await signUpNotifier
                                 .sendotp(OtpModel(email: number.text.toLowerCase()));
                                 AppConfig().saveEmail(number.text);
-                                
-                              
                           }
                         },
                         style: ElevatedButton.styleFrom(

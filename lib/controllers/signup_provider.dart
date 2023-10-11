@@ -95,6 +95,7 @@ class SignUpNotifier extends ChangeNotifier {
     AuthHelper.verify(model).then((response) {
       if (response) {
         navigator!.pop();
+        Get.to(() => const NavBar());
       } else if (!response) {
         navigator!.pop();
         Get.snackbar('Server', 'Busy');

@@ -62,7 +62,7 @@ class CourseDetailsTile extends StatelessWidget {
           width: 50,
           height: 50,
           decoration: BoxDecoration(
-            color: Colors.orange,
+            color: Colors.blue,
             borderRadius: BorderRadius.circular(10),
           ),
           alignment: Alignment.center,
