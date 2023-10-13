@@ -27,7 +27,7 @@ class _NavBarState extends State<NavBar> {
       body: PageView(
         onPageChanged: navcontroller.onPageChanged,
         controller: navcontroller.pageController,
-        physics: const BouncingScrollPhysics(),
+        physics: PageScrollPhysics(),
         children:   [
           const HomePage(),
           const InternshipsPage(),
