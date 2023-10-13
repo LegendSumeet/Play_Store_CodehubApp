@@ -70,7 +70,7 @@ class _MyAppState extends State<MyApp> {
               theme: ThemeData(
                 primarySwatch: Colors.grey,
               ),
-              home:  const SignUp());
+              home:  const NavBar());
         });
   }
 }
